@@ -38,9 +38,6 @@ public class StudioDesignsHandler {
     private static final String UPDATE_EVENT = "io.apicurio.hub.design-updated";
     private static final String DELETE_EVENT = "io.apicurio.hub.design-deleted";
 
-    @ConfigProperty(name = "registry.api.url")
-    String registryUrl;
-
     @ConfigProperty(name = "studio.api.url")
     String studioApiUrl;
 
@@ -50,13 +47,14 @@ public class StudioDesignsHandler {
     @Inject
     Vertx vertx;
 
-    WebClient client;
+    @Inject
     RegistryRestClient registryClient;
+
+    WebClient client;
 
     @PostConstruct
     void init() {
         this.client = WebClient.create(vertx);
-        this.registryClient = RegistryRestClientFactory.create(registryUrl);
     }
 
     @Funq
@@ -107,7 +105,7 @@ public class StudioDesignsHandler {
                             if (res.statusCode() == 200) {
                                 artifactHandler.accept(designName, res.body().getBytes());
                             } else {
-                                log.info("Error fetching design", res.toString());
+                                log.info("Error fetching design {} {}", res.statusCode(), res.statusMessage());
                             }
                         } else {
                             log.error("Error fetching design exception", ar.cause());

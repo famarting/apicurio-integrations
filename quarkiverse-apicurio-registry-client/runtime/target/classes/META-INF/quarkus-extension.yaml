@@ -1,0 +1,6 @@
+---
+metadata: {}
+group-id: "io.quarkiverse.apicurio"
+artifact-id: "quarkiverse-apicurio-registry-client"
+version: "0.0.1-SNAPSHOT"
+name: "Apicurio Registry client - Runtime"

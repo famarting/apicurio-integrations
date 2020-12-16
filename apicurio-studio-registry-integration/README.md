@@ -18,5 +18,12 @@ In apicurio-registry project, inside app folder
 `mvn quarkus:dev -Dquarkus.http.port=9090`
 
 # Run this function
+```
+export STUDIO_AUTH_USERNAME=test
+export STUDIO_AUTH_PASSWORD=test
+```
 In this project
 `mvn quarkus:dev`
+
+# Compile to native
+`mvn package -Pnative -Dquarkus.native.container-build=true`

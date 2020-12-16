@@ -23,19 +23,19 @@ public class StudioTokenClient {
     private final Logger log = LoggerFactory.getLogger(this.getClass().getName());
 
     @ConfigProperty(name = "studio.auth.url")
-    private String studioAuthUrl;
+    String studioAuthUrl;
     
     @ConfigProperty(name = "studio.auth.realm")
-    private String studioAuthRealm;
+    String studioAuthRealm;
     
     @ConfigProperty(name = "studio.auth.client-id")
-    private String studioAuthClientId;
+    String studioAuthClientId;
     
     @ConfigProperty(name = "studio.auth.username")
-    private String studioAuthUsername;
+    String studioAuthUsername;
     
     @ConfigProperty(name = "studio.auth.password")
-    private String studioAuthPassword;
+    String studioAuthPassword;
 
     @Inject
     Vertx vertx;
